@@ -1,0 +1,8 @@
+1) Try to write a new vendor class. Perhaps smart lights or a security system.
+2) Write command objects to encapsulate the new vendor "receivers"
+    Remember that a class can function as multiple receivers (see how many the tv has!)
+3) Write a new client (or add to the existing one) and use your new commands in a remote.
+    You should NOT have to touch the remote class
+    That's what makes this pattern so great
+4) Try making a remote that mixes commands with different receivers
+    The remote is not limited to working with just one vendor class
