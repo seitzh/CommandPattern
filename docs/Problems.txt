@@ -6,3 +6,6 @@
     That's what makes this pattern so great
 4) Try making a remote that mixes commands with different receivers
     The remote is not limited to working with just one vendor class
+5) Try to make a new System modelled on this one. Make a new Invoker, new Receivers, a new Command Interface, and new Command objects.
+    If you can do this, you should have a good understanding of the pattern and do well on any command pattern questions on the final.
+    
