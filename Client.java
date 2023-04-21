@@ -30,7 +30,7 @@ public class Client
             System.out.printf("\nSelect a button number or type exit:\n%s\nSelection: ", remote);
             input = userInput.nextLine();
             System.out.println();
-            choice = convertInput(input, 0, remote.getNumButtons());
+            choice = convertInput(input, remote.getNumButtons(), 0);
             if (input.equals("exit"))
             {
                 System.out.println("Goodbye!");
@@ -87,5 +87,5 @@ public class Client
         tvRemote.setButton(new Subscribe(tv, userInput), 6);
         tvRemote.setButton(new Unsubscribe(tv, userInput), 7);
         return tvRemote;
-    }    
+    }
 }

@@ -33,16 +33,12 @@ public class Remote
      */
     public boolean clickButton(int button)
     {
-        boolean success = false;
         if (invalidButton(button))
         {
             System.out.printf("Invalid button choice: %d. Valid buttons are 0 - %d\n", button, buttons.length - 1);
+            return false;
         }
-        else if (buttons[button].performAction())
-        {
-            success = true;
-        }
-        return success;
+        return buttons[button].performAction();
     }
 
     /**
