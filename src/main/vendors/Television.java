@@ -111,7 +111,7 @@ public class Television
      */
     public boolean goToChannel(int station)
     {
-        if (isOn && station < 0 && station <= channels.size())
+        if (isOn && station > 0 && station <= channels.size())
         {
             currStation = station;
             return true;

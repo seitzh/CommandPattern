@@ -1,9 +1,13 @@
+package client;
 import java.util.Scanner;
+
+import remote.Remote;
+import remote.RemoteGenerators;
 import vendors.Television;
 
-public class Client
+public class Demo
 {
- /**
+    /**
      * Runs the demo program.
      * 
      * @param args
@@ -12,7 +16,7 @@ public class Client
     {
         Scanner kb = new Scanner(System.in);
         Television tv = new Television(100);
-        Remote remote = tvRemote(tv, kb);
+        Remote remote = RemoteGenerators.tvRemote(tv, kb);
         remoteDemo(remote, kb);
     }
 
@@ -65,27 +69,5 @@ public class Client
         {
             return -1;
         }
-    }
-
-    /**
-     * Creates a remote for managing a tv.
-     * Here the client connects the receiver (tv) to concrete commands (ie Power) and sets them in the invoker (Remote)
-     * 
-     * @param tv the tv to connect the remote to
-     * @param userInput a method of getting input when subscribing or unsubsrcibing to channels.
-     * @return the created remote.
-     */
-    private static Remote tvRemote(Television tv, Scanner userInput)
-    {
-        Remote tvRemote = new Remote(8);
-        tvRemote.setButton(new Power(tv), 0);
-        tvRemote.setButton(new ChannelListing(tv), 1);
-        tvRemote.setButton(new VolumeUp(tv), 2);
-        tvRemote.setButton(new VolumeDown(tv), 3);
-        tvRemote.setButton(new ChannelForward(tv), 4);
-        tvRemote.setButton(new ChannelBackward(tv), 5);
-        tvRemote.setButton(new Subscribe(tv, userInput), 6);
-        tvRemote.setButton(new Unsubscribe(tv, userInput), 7);
-        return tvRemote;
     }
 }

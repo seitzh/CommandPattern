@@ -1,12 +1,13 @@
+package remote;
 import vendors.Television;
 
 /**
- * A child class of action that decreases the volume of a tv.
+ * A child class of action that increases the volume of a tv.
  * 
  * @author Willow Sapphire
  * @version Fall 2022
  */
-public class VolumeDown extends Action
+public class VolumeUp extends Action
 {
     /**
      * The tv for which to change the volume.
@@ -18,14 +19,14 @@ public class VolumeDown extends Action
      * 
      * @param tv the tv to connect to
      */
-    public VolumeDown(Television tv)
+    public VolumeUp(Television tv)
     {
-        super ("Volume Down");
+        super ("Volume Up");
         this.tv = tv;
     }
 
     /**
-     * Turns the volume of the tv down by one.
+     * Turns the volume of the tv up by one.
      * 
      * @return false if the tv is not on yet or the volume is at zero, true otherwise
      */
@@ -37,15 +38,15 @@ public class VolumeDown extends Action
             System.out.println("You need to turn on the tv before you can change the volume.");
             return false;
         }
-        else if (tv.getVolume() == 0)
+        else if (tv.getVolume() == tv.getMaxVolume())
         {
-            System.out.println("Volume already at zero");
+            System.out.println("Volume already at maximum");
             return false;
         }
         else
         {
-            tv.decreaseVolume();
-            System.out.printf("Volume down. Now at %d\n", tv.getVolume());
+            tv.increaseVolume();
+            System.out.printf("Volume up. Now at %d\n", tv.getVolume());
             return true;
         }
     }

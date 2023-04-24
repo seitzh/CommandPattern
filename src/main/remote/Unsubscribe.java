@@ -1,14 +1,15 @@
+package remote;
 import java.util.Scanner;
 
 import vendors.Television;
 
 /**
- * A child class of action that adds a channel to a tv's channel list.
+ * A child class of action that removes a channel to a tv's channel list.
  * 
  * @author Willow Sapphire
  * @version Fall 2022
  */
-public class Subscribe extends Action
+public class Unsubscribe extends Action
 {
     /**
      * The tv being used.
@@ -22,9 +23,9 @@ public class Subscribe extends Action
      * 
      * @param tv the tv to connect to
      */
-    public Subscribe(Television tv, Scanner userInput)
+    public Unsubscribe(Television tv, Scanner userInput)
     {
-        super("Subscribe");
+        super("Unsubscribe");
         this.tv = tv;
         this.userInput = userInput;
     }
@@ -37,14 +38,14 @@ public class Subscribe extends Action
     @Override
     public boolean performAction()
     {
-        String channelToAdd = userInput.nextLine();
-        if (tv.hasChannel(channelToAdd))
+        String channelToRemove = userInput.nextLine();
+        if (!tv.hasChannel(channelToRemove))
         {
-            System.out.printf("%s is already on station %d on this tv.", channelToAdd, tv.getStationAtChannel(channelToAdd));
+            System.out.printf("%s is not in the current channel list.", channelToRemove);
             return false;
         }
-        tv.subscribeToChannel(channelToAdd);
-        System.out.printf("Channel %s added\n", channelToAdd);
+        tv.unsubscribeFromChannel(channelToRemove);
+        System.out.printf("Channel %sremoved\n", channelToRemove);
         return true;
     }
 }

@@ -1,3 +1,4 @@
+package remote;
 /**
  * Performs an action that can be used in a remote.
  * All the different actions will subclass this
@@ -8,8 +9,11 @@
  */
 public abstract class Action
 {
-
+    /**
+     * Centralized location to access null actions.
+     */
     public static final Action NULL = new NullAction();
+
     /**
      * The name of the action.
      */
@@ -55,8 +59,14 @@ public abstract class Action
         this.actionName = actionName == null ? "No Name" : actionName;
     }
 
+    /**
+     * Use the name of the action when the action is printed.
+     * 
+     * @return the name of the action
+     */
     @Override
-    public String toString() {
+    public String toString()
+    {
         return actionName;
     }
 }

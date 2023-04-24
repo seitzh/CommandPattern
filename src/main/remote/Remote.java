@@ -1,3 +1,4 @@
+package remote;
 /**
  * A generic remote class that assigns actions to buttons.
  * 
