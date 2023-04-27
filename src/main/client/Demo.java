@@ -2,26 +2,21 @@ package client;
 import java.util.Scanner;
 
 import remote.Remote;
-import remote.RemoteGenerators;
-import vendors.Television;
+import remote.RemoteGenerators2;
+import vendors.StereoSystem;
 
-public class Demo
-{
-    /**
-     * Runs the demo program.
-     * 
-     * @param args
-     */
+public class Demo {
+    
     public static void main(String[] args)
     {
     
         Scanner kb = new Scanner(System.in);
-        Television tv = new Television(100);
-        Remote remote = RemoteGenerators.tvRemote(tv, kb);
+        StereoSystem ss = new StereoSystem();
+        Remote remote = RemoteGenerators2.stereoSystem(ss, kb);
         remoteDemo(remote, kb);
     }
 
-    /**
+    /**2
      * Allows a user to repeatedly press different buttons on a remote.
      * 
      * @param remote the remote to play with
@@ -50,7 +45,6 @@ public class Demo
             }
         } while (!input.equals("exit"));
     }
-
     /**
      * Checks a string to see if it is an int within a specific range.
      * 

@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class StereoSystem{
     
     public String[] EssentialCDs = {
-        "Selected Ambient Works 85-92", "My Favorite Things", "Love Deluxe", "Untrue", "Whats Going On" 
+        "Selected Ambient Works 85-92", "My Favorite Things", "Love Deluxe", "Untrue", "Whats Going On", "Flamboyant", "Sketches of Spain" 
     };
 
     private Scanner kb;
@@ -32,10 +32,12 @@ public class StereoSystem{
         {
             System.out.println(CDs.get(i));
         }
+        System.out.print("\nOh my goodness your taste is impeccable! ヽ(°〇°)ﾉ\n");
     }
     
-    public void insertCD()
+    public void insertCD(Scanner kb)
     {
+        kb = new Scanner(System.in);
         System.out.print("\n");
         if(CDPlayer[0] == " ")
         {
@@ -57,6 +59,7 @@ public class StereoSystem{
             System.out.println("The Player already has something in it");
         }
         System.out.print("\n");
+        //kb.close();
     }
 
     public void listen()
@@ -76,11 +79,18 @@ public class StereoSystem{
 
     public void ejectCD()
     {
+        if(CDPlayer[0] != " ")
+        {
         System.out.print("\n");
         CDs.add(CDPlayer[0]);
         CDPlayer[0] = " ";
         System.out.println("Ejecting...");
         System.out.print("\n");
+        }
+        else
+        {
+            System.out.println("There is not CD in the slot lol");
+        }
     }
 
     //Just for testing
